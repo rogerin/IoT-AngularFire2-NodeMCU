@@ -25,6 +25,16 @@ export class HomePage {
     // this.navCtrl.push('ContactEditPage', { key: contact.key });
   }
 
+  changeActive(ambient: any){
+    this.provider.changeActive(ambient)
+      .then(() => {
+        this.toast.create({ message: 'Ambiente modificado com sucesso.', duration: 3000 }).present();
+      })
+      .catch(() => {
+        this.toast.create({ message: 'Erro ao modificar o ambiente.', duration: 3000 }).present();
+      });
+  }
+
   removeAmbient(key: string) {
     if (key) {
       this.provider.remove(key)

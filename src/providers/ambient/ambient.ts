@@ -28,7 +28,7 @@ export class AmbientProvider {
     return new Promise((resolve, reject) => {
       if (ambient.key) {
         this.db.list(this.PATH)
-          .update(ambient.key, { name: ambient.name, active: ambient.active  })
+          .update(ambient.key, { name: ambient.name })
           .then(() => resolve())
           .catch((e) => reject(e));
       } else {
@@ -36,6 +36,15 @@ export class AmbientProvider {
           .push({ name: ambient.name, active: false })
           .then(() => resolve());
       }
+    })
+  }
+
+  changeActive(ambient: any) {
+    return new Promise((resolve, reject) => {
+      this.db.list(this.PATH)
+      .update(ambient.key, { active: ambient.active })
+      .then(() => resolve())
+      .catch((e) => reject(e));
     })
   }
  

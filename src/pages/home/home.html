@@ -13,7 +13,7 @@
 
           <ion-item>
               <ion-label> {{ ambient.name }}</ion-label>
-              <ion-toggle checked="false"></ion-toggle>
+              <ion-toggle checked="{{ ambient.active }}" [(ngModel)]="ambient.active" (ionChange)="changeActive(ambient)"></ion-toggle>
           </ion-item>
 
           <ion-item-options side="left">
