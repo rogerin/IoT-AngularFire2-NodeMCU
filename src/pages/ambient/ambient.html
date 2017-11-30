@@ -19,13 +19,16 @@
         </div>
       </ion-item>
 
-      <ion-item *ngIf="form.controls.key.value">
-        Adicione a key no NodeMCU: 
-        <div color="danger">
+  
+        <!-- <div color="danger">
            {{form.controls.key.value}}
-        </div>
-      </ion-item>
-        
+        </div> -->
+
+        <ion-item *ngIf="form.controls.key.value"> 
+          <ion-label stacked>Inserir Key no NodeMCU</ion-label>
+          <ion-input type="text" formControlName="key"></ion-input>
+        </ion-item>
+
     
       <div padding>
         <button ion-button block type="submit" [disabled]="!form.valid" (click)="onSubmit()">Salvar</button>
